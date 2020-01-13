@@ -4,7 +4,7 @@ window.onload = () => {
     
     function refreshTracks(){
         event.preventDefault()
-        return fetch(`http://localhots:3000/track/${idTrack}` , {
+        return fetch(`https://gestorespacos.herokuapp.com/track/${idTrack}` , {
         headers: { "Content-Type": "application/x-www-form-urlencoded"},
         method:"GET", 
     })
@@ -22,7 +22,7 @@ window.onload = () => {
 
             .then(async()  => {
                 event.preventDefault()
-                const x = await fetch (`http://localhots:3000/track/${idTrack}/schedule_track`,{
+                const x = await fetch (`https://gestorespacos.herokuapp.com/track/${idTrack}/schedule_track`,{
                 headers: { "Content-Type": "application/x-www-form-urlencoded"},
                 method:"GET", 
                 })
@@ -59,7 +59,7 @@ window.onload = () => {
     const btnEditPista = document.getElementById("editPista");
 	btnEditPista.addEventListener("onclick", async (event) => {
         event.preventDefault()
-        return fetch(`http://localhots:3000/track/${idTrack}` , {
+        return fetch(`https://gestorespacos.herokuapp.com/track/${idTrack}` , {
         headers: { "Content-Type": "application/x-www-form-urlencoded"},
         method:"GET", 
     })
@@ -100,7 +100,7 @@ window.onload = () => {
         }
 
 
-            response = await fetch(`http://localhost:3000/track/${id_pista}`, {
+            response = await fetch(`https://gestorespacos.herokuapp.com/track/${id_pista}`, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
@@ -119,7 +119,7 @@ window.onload = () => {
                     }
                 }
 
-                response = await fetch(`http://localhost:3000/track/${id_pista}/schedule_track`, {
+                response = await fetch(`https://gestorespacos.herokuapp.com/track/${id_pista}/schedule_track`, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },

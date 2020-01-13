@@ -6,7 +6,7 @@ window.onload=() => {
     console.log(getCookie('id'));
 //fetch para buscar preencher o menu com os dados do utilizador
     const renderMenu = async () =>{
-    const response1 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+    const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
     const p = await response1.json();
     const spacemanager = p[0];
     
@@ -43,7 +43,7 @@ if (isNew) {
     console.log('antesdofetchdeAdd')
 
     // Adiciona Patrocinador
-            response = await fetch(`http://localhost:3000/materials`, {
+            response = await fetch(`https://gestorespacos.herokuapp.com/materials`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
@@ -53,7 +53,7 @@ if (isNew) {
     renderMaterial();
 }else {
     // Atualiza Material
-        response = await fetch(`http://localhost:3000/materials/${id_material}`, {
+        response = await fetch(`https://gestorespacos.herokuapp.com/materials/${id_material}`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
@@ -80,7 +80,7 @@ if (isNew) {
             <th class='w-20 text-center bg-warning'> Ações</th> 		</tr>    
         </thead><tbody> 
     `
-      const response = await fetch(`http://localhost:3000/materials`)
+      const response = await fetch(`https://gestorespacos.herokuapp.com/materials`)
       const materials = await response.json()
       let i = 1
       for (const material of materials) {
@@ -142,7 +142,7 @@ for (let i = 0; i < btnDelete.length; i++) {
                 console.log(id_material) //funciona => le direito
                 try {
                     console.log(id_material)
-                    const response = await fetch(`http://localhost:3000/materials/del/${id_material}`, {
+                    const response = await fetch(`https://gestorespacos.herokuapp.com/materials/del/${id_material}`, {
                         method: "PUT"
                         
                     })
@@ -170,7 +170,7 @@ for (let i = 0; i < btnDelete.length; i++) {
 
     //fetch para buscar preencher o menu com os dados do utilizador
     const renderMenu = async () =>{
-        const response1 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+        const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
         const p = await response1.json();
         const spacemanager = p[0];
         

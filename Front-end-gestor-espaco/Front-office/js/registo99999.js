@@ -23,7 +23,7 @@
 
         let contador = 0;
 
-        const response = await fetch('http://localhost:3000/spacemanager')
+        const response = await fetch('https://gestorespacos.herokuapp.com/')
         const spacemanagers = await response.json();
         
         for (const spacemanager of spacemanagers){
@@ -47,14 +47,14 @@
             txtPassword="" ; }
 
             else{             
-                    fetch('http://localhost:3000/signup',{
+                    fetch('https://gestorespacos.herokuapp.com/signup',{
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         method: 'POST',
                         body: `email=${txtEmail}&password=${txtPassword}`
                     }).then(function(){
 
 
-                   fetch('http://localhost:3000/spacemanager',{
+                   fetch('https://gestorespacos.herokuapp.com/spacemanager',{
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     method: 'POST',
                     body: `nome_gestor_espaco=${txtNome}&email_gestor=${txtEmail}&morada=${txtMorada}&data_nascimento=${txtDatanascimeto}&nif=${txtNif}&telefone=${txtTelefone}`
@@ -62,7 +62,7 @@
                         if(!response.ok) {
                             alert('Erro');
                         }else {
-                            fetch ('http://localhost:3000/space', {
+                            fetch ('https://gestorespacos.herokuapp.com/space', {
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         method: 'POST',
                         body : `morada_espaco=${txtMorada_espaco}&localidade=${txtLocalidade}&coordenadas_gps=${txtCoordenadas_gps}`

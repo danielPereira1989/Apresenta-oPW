@@ -22,7 +22,7 @@ renderTracks()
                 if (result.value) {
                     let idTrack = btnDelete[i].getAttribute("id")
                     try {
-                        const response = await fetch(`http://localhost:3000/space/1/track/:${idTrack}`, { method: "DELETE" })
+                        const response = await fetch(`https://gestorespacos.herokuapp.com/space/1/track/:${idTrack}`, { method: "DELETE" })
                         const tracks = await response.json();
                         swal('Pista Removida!', `A ${track_name} foi removida com sucesso!`, 'success')
                         renderTracks()
@@ -85,7 +85,7 @@ renderTracks()
         let response
         if (isNew) {
             // Adiciona Pista
-            response = await fetch(`http://localhost:3000/space/8/track`, {
+            response = await fetch(`https://gestorespacos.herokuapp.com/space/8/track`, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
@@ -102,7 +102,7 @@ renderTracks()
 
     
     const renderTracks = async () => {
-        const response = await fetch(`http://localhost:3000/track/`)
+        const response = await fetch(`https://gestorespacos.herokuapp.com/track/`)
         const track = await response.json()
         for (const tracks of track) {
             if (tracks.idTracktype_fk == 1) {

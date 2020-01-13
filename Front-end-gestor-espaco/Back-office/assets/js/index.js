@@ -7,7 +7,7 @@ console.log(getCookie('id'));
 
     //fetch para buscar preencher o menu com os dados do utilizador
     const renderMenu = async () =>{
-    const response1 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+    const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
     const p = await response1.json();
     const spacemanager = p[0];
     
@@ -39,7 +39,7 @@ console.log(getCookie('id'));
                 </tr> 
             </thead><tbody> 
         `
-        const response = await fetch(`http://localhost:3000/space/${id_espaco}`)
+        const response = await fetch(`https://gestorespacos.herokuapp.com/space/${id_espaco}`)
         const spaces = await response.json()
         
 
@@ -76,7 +76,7 @@ const renderPistas = async () => {
 `
     console.log("ola");
     console.log(id_espaco);
-    const pistas = await fetch(`http://localhost:3000/track`)
+    const pistas = await fetch(`https://gestorespacos.herokuapp.com/track`)
     const tracks = await pistas.json()
     let i = 1
     for (const track of tracks) {

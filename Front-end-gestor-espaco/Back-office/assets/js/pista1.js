@@ -4,7 +4,7 @@ window.onload = () =>{
 
     const refreshTracks = async () =>{
         event.preventDefault()
-        const response2 = await fetch(`http://localhost:3000/track` , {
+        const response2 = await fetch(`https://gestorespacos.herokuapp.com/track` , {
             headers: { "Content-Type": "application/x-www-form-urlencoded"},
             method:"GET",
         })

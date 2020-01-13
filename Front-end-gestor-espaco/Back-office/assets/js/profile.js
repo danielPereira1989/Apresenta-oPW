@@ -3,7 +3,7 @@ window.onload = () => {
 
     //fetch para buscar preencher o menu com os dados do utilizador
     const renderMenu = async () =>{
-      const response1 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+      const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
       const p = await response1.json();
       const spacemanager = p[0];
       console.log(spacemanager.nome_gestor_espaco);
@@ -19,7 +19,7 @@ window.onload = () => {
     
     //fetch para buscar os dados e apresentar na página
     const renderInformacoes = async () =>{
-      const response2 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+      const response2 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
       const ps = await response2.json();
       const spacemanager = ps[0];
 

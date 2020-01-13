@@ -13,7 +13,7 @@ window.onload=() => {
             <th class='w-20 text-center bg-warning'> Ações</th> 		</tr>    
         </thead><tbody> 
     `
-      const response = await fetch(`http://localhost:3000/materials`) //ALTERAR O FETCH PARA OBTER MATERIAIS POR ESPAÇO
+      const response = await fetch(`https://gestorespacos.herokuapp.com/materials`) //ALTERAR O FETCH PARA OBTER MATERIAIS POR ESPAÇO
       const materials = await response.json()
       let i = 1
       for (const material of materials) {

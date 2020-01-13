@@ -14,13 +14,13 @@ formRegisto.addEventListener("submit", async (event) => {
     const txtLocalidade = document.getElementById("localidade").value;
     const txtCoordenadas_gps = document.getElementById("coordenadas_gps").value;
     
-    const response1 = await fetch(`http://localhost:3000/spacemanager/email`);
+    const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/email`);
     const spacemanagers = await response1.json();
     const spacemanager = spacemanagers[0];
     console.log(spacemanager.resultado);
     let emailExist = spacemanager.resultado;
 
-    const response2 = await fetch('http://localhost:3000/space/info/local');
+    const response2 = await fetch('https://gestorespacos.herokuapp.com/space/info/local');
     const spaces = await response2.json();
     const space = spaces[0];
     console.log("fds");
@@ -38,7 +38,7 @@ formRegisto.addEventListener("submit", async (event) => {
             
     let response = "";
    
-        response = await fetch('http://localhost:3000/signup',{
+        response = await fetch('https://gestorespacos.herokuapp.com/signup',{
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             body: `email=${txtEmail}&password=${txtPassword}&tipo=1`
@@ -47,7 +47,7 @@ formRegisto.addEventListener("submit", async (event) => {
                 alert('Erro');                        
             } 
             else{
-                    fetch ('http://localhost:3000/space', {
+                    fetch ('https://gestorespacos.herokuapp.com/space', {
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         method: 'POST',
                         body: `morada_espaco=${txtMorada_espaco}&localidade=${txtLocalidade}&coordenadas_gps=${txtCoordenadas_gps}`
@@ -58,12 +58,12 @@ formRegisto.addEventListener("submit", async (event) => {
                         }            
                     });
                 
-    const response3 = await fetch(`http:localhost:3000/space/get/${txtLocalidade}`);
+    const response3 = await fetch(`https://gestorespacos.herokuapp.com/space/get/${txtLocalidade}`);
     const espacos = await response3.json();
     const espaco = espacos[0];
     console.log(espaco.id_espaco);
     let txtIDespaco = espaco.id_espaco;
-    response4 = await fetch('http://localhost:3000/spacemanager',{
+    response4 = await fetch('https://gestorespacos.herokuapp.com/spacemanager',{
                                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                                 method: 'POST',
                                 body:`idEspacoSM_fk=${txtIDespaco}&nome_gestor_espaco=${txtNome}&morada=${txtMorada}&data_nascimento=${txtDatanascimeto}&nif=${txtNif}&telefone=${txtTelefone}&email_gestor=${txtEmail}`

@@ -1,4 +1,4 @@
-const urlBase = "http://localhost:3000"
+const urlBase = "https://gestorespacos.herokuapp.com/"
 let isNew = true
 let id_edit =""
 
@@ -8,7 +8,7 @@ window.onload = () => {
     console.log(getCookie('id'));
     //fetch para buscar preencher o menu com os dados do utilizador
     const renderMenu = async () =>{
-        const response1 = await fetch(`http://localhost:3000/spacemanager/inf/${user_id}`);
+        const response1 = await fetch(`https://gestorespacos.herokuapp.com/spacemanager/inf/${user_id}`);
         const p = await response1.json();
         const spacemanager = p[0];
         
@@ -50,7 +50,7 @@ const formPatrocinadores = document.getElementById("formPatrocinadores")
                 console.log('antesdofetchdeAdd')
     
                 // Adiciona Patrocinador
-                response = await fetch(`http://localhost:3000/sponser`, {
+                response = await fetch(`https://gestorespacos.herokuapp.com/sponser`, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
@@ -60,7 +60,7 @@ const formPatrocinadores = document.getElementById("formPatrocinadores")
                   }) 
                   const sponser = response.json() 
                   .then(function() {
-                    fetch(`http://localhost:3000/sponsership`, {
+                    fetch(`hhttps://gestorespacos.herokuapp.com/sponsership`, {
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
                         },
@@ -74,7 +74,7 @@ const formPatrocinadores = document.getElementById("formPatrocinadores")
         } else {
             // Atualiza Patrocinador
         
-                response = await fetch(`http://localhost:3000/sponser/${id_edit}`, {
+                response = await fetch(`https://gestorespacos.herokuapp.com/sponser/${id_edit}`, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
@@ -83,7 +83,7 @@ const formPatrocinadores = document.getElementById("formPatrocinadores")
                     &NIF=${NIF}&Morada=${Morada}&active=1`
                 }) 
                 .then(function() {
-                    fetch(`http://localhost:3000/sponser/${id_edit}/sponsership/`, {
+                    fetch(`https://gestorespacos.herokuapp.com/${id_edit}/sponsership/`, {
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
                         },
